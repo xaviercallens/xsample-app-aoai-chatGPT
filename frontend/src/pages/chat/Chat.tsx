@@ -108,7 +108,7 @@ const Chat = () => {
 
   useEffect(() => {
     if (!appStateContext?.state.isLoading) {
-      setLogo(ui?.chat_logo || ui?.logo || Contoso)
+      setLogo(ui?.chat_logo || ui?.logo || GEM)
     }
   }, [appStateContext?.state.isLoading])
 
