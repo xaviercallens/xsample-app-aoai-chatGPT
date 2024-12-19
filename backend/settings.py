@@ -45,7 +45,7 @@ class _UiSettings(BaseSettings):
     logo: Optional[str] = None
     chat_logo: Optional[str] = None
     chat_title: str = "Start chatting"
-    chat_description: str = "This chatbot is configured to answer your questions"
+    chat_description: str = "This chatbot is configured to answer your questions about the Global Event Mesh and to help you in your EDA journey to create, produce and consume business shred events within Amadeus and across applicationd domains"
     favicon: str = "/favicon.ico"
     show_share_button: bool = True
     show_chat_history_button: bool = True
@@ -107,7 +107,7 @@ class _AzureOpenAISettings(BaseSettings):
     endpoint: Optional[str] = None
     temperature: float = 0
     top_p: float = 0
-    max_tokens: int = 1000
+    max_tokens: int = 3000
     stream: bool = True
     stop_sequence: Optional[List[str]] = None
     seed: Optional[int] = None
@@ -118,7 +118,7 @@ class _AzureOpenAISettings(BaseSettings):
     logit_bias: Optional[dict] = None
     presence_penalty: Optional[confloat(ge=-2.0, le=2.0)] = 0.0
     frequency_penalty: Optional[confloat(ge=-2.0, le=2.0)] = 0.0
-    system_message: str = "You are an AI assistant that helps people find information."
+    system_message: str = "You are tasked with providing recommendations and guidelines to developers at Amadeus who are adopting an Event-Driven Architecture (EDA) using Quarkus. The goal is to effectively leverage the Global Event Mesh using Solace Cloud and the event portal to integrate business events effectively."
     preview_api_version: str = MINIMUM_SUPPORTED_AZURE_OPENAI_PREVIEW_API_VERSION
     embedding_endpoint: Optional[str] = None
     embedding_key: Optional[str] = None
@@ -362,7 +362,7 @@ class _AzureCosmosDbMongoVcoreSettings(
     )
     _type: Literal["azure_cosmosdb"] = PrivateAttr(default="azure_cosmosdb")
     top_k: int = Field(default=5, serialization_alias="top_n_documents")
-    strictness: int = 3
+    strictness: int = 4 #change here GEMAI
     enable_in_domain: bool = Field(default=True, serialization_alias="in_scope")
     query_type: Literal['vector'] = "vector"
     connection_string: str = Field(exclude=True)
@@ -431,7 +431,7 @@ class _ElasticsearchSettings(BaseSettings, DatasourcePayloadConstructor):
     )
     _type: Literal["elasticsearch"] = PrivateAttr(default="elasticsearch")
     top_k: int = Field(default=5, serialization_alias="top_n_documents")
-    strictness: int = 3
+    strictness: int = 4 #change here GEMAI
     enable_in_domain: bool = Field(default=True, serialization_alias="in_scope")
     endpoint: str
     encoded_api_key: str = Field(exclude=True)
@@ -504,7 +504,7 @@ class _PineconeSettings(BaseSettings, DatasourcePayloadConstructor):
     )
     _type: Literal["pinecone"] = PrivateAttr(default="pinecone")
     top_k: int = Field(default=5, serialization_alias="top_n_documents")
-    strictness: int = 3
+    strictness: int = 4 #change here GEMAI
     enable_in_domain: bool = Field(default=True, serialization_alias="in_scope")
     environment: str
     api_key: str = Field(exclude=True)
@@ -574,7 +574,7 @@ class _AzureMLIndexSettings(BaseSettings, DatasourcePayloadConstructor):
     )
     _type: Literal["azure_ml_index"] = PrivateAttr(default="azure_ml_index")
     top_k: int = Field(default=5, serialization_alias="top_n_documents")
-    strictness: int = 3
+    strictness: int = 4 #change here GEMAI
     enable_in_domain: bool = Field(default=True, serialization_alias="in_scope")
     name: str
     version: str
@@ -686,7 +686,7 @@ class _MongoDbSettings(BaseSettings, DatasourcePayloadConstructor):
     index_name: str
     query_type: Literal["vector"] = "vector"
     top_k: int = Field(default=5, serialization_alias="top_n_documents")
-    strictness: int = 3
+    strictness: int = 4 #change here GEMAI
     enable_in_domain: bool = Field(default=True, serialization_alias="in_scope")
     content_columns: Optional[List[str]] = Field(default=None, exclude=True)
     vector_columns: Optional[List[str]] = Field(default=None, exclude=True)
